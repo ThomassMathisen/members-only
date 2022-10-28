@@ -1,11 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Hello! Welcome to <%= title %></p>
-  </body>
+<head>
+  <title><%= title %></title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>    
+  <nav class="nav-bar">
+  <%  if(!currentUser){ %>
+    <a href='/catalog'><h1 style="margin-left: 5px;"> PRIVATE CLUB</h1></a>
+    <a href='/catalog/sign-up' class="nav-2"><h2>Sign-Up</h2></a>
+    <a href='/catalog/login' class="nav-3"><h2>Login</h2></a>
+  <%  }else{ %>
+    <a href='/catalog'><h1 style="margin-left: 5px;"> PRIVATE CLUB</h1></a>
+    <a href='/catalog/admin' class="lnav-2"><h2>Become Admin</h2></a>
+    <a href='/catalog/create_post' class="lnav-3"><h2>Create Post</h2></a>
+    <a href='/catalog/logout' class="lnav-4"><h2>Logout</h2></a>
+  <% } %>
+  </nav>
+</body>
 </html>

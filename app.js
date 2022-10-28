@@ -3,7 +3,9 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const mongoose = require('mongoose');
 const session = require('express-session');
+const passport = require('./passport')
 const compression = require('compression');
 const helmet = require('helmet');
 require('dotenv').config();
@@ -22,6 +24,8 @@ db.on("error", console.error.bind(console, "mongo connection error"));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(session({secret:process.env.secret,resave:false,saveUninitialized:true}));
 
 app.use(passport.initialize());
 app.use(passport.session());
