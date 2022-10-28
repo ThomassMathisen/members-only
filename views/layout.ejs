@@ -1,48 +1,40 @@
 <%- include('index') %>
 <main>
-    <h2 style="text-align: center;color:White;">Welcome to Private Club !</h2>
+  <h2 style="text-align: center;color:White;">Welcome to Private Club !</h2>
   <%  if(currentUser){ %>
-        <h2 style="text-align: center;color:White;">Welcome <%=currentUser.name %> !</h2>
+    <h2 style="text-align: center;color:White;">Welcome <%=currentUser.name %> !</h2>
   <%    } %>
     
-   <% for(let i=0; i< result.length; i++){
-        if(currentUser){ 
-            if(currentUser.admin){ %>
-                
-                <div class='container'>
-                    
-                    <div  class="I1"><span>Title:    :</span>    <%=result[i].title %></div><br/>
-                    <div  class="I2"><span>Message:  :</span>    <%=result[i].message %></div><br/>
-                    <div  class="I3"><span>By:       :</span>    <%=result[i].user.name %></div><br/>
-                    <div  class="I4"><span>Date:     :</span>    <%=result[i].time %></div><br/>
-                    <div> <form method="POST" action=" ">
-                        <input type="hidden" value="<%=result[i]._id %>" name='delete' id='delete' />
-                        <button>Delete Post</button>
-                    </form></div>
-    
-                </div>
-               
-                <br/>
-                
-            
-          <%  }else{ %>
-            
+  <% for(let i=0; i< result.length; i++){
+    if(currentUser){ 
+      if(currentUser.admin){ %>         
+        <div class='container'>            
+          <div  class="I1"><span>Title:    :</span>    <%=result[i].title %></div><br/>
+          <div  class="I2"><span>Message:  :</span>    <%=result[i].message %></div><br/>
+          <div  class="I3"><span>By:       :</span>    <%=result[i].user.name %></div><br/>
+          <div  class="I4"><span>Date:     :</span>    <%=result[i].time %></div><br/>
+          <div> <form method="POST" action=" ">
+            <input type="hidden" value="<%=result[i]._id %>" name='delete' id='delete' />
+            <button>Delete Post</button>
+            </form></div>
+            </div>   
+            <br/>    
+        <%  }else{ %>    
             <div class='container'>
-                
-                <div><span>Title:    :</span>    <%=result[i].title %></div><br/>
-                <div><span>Message:  :</span>    <%=result[i].message %></div><br/>
-                <div><span>By:       :</span>    <%=result[i].user.name %></div><br/>
-                <div><span>Date:     :</span>    <%=result[i].time %></div>
-                <br/>
+            <div><span>Title:    :</span>    <%=result[i].title %></div><br/>
+            <div><span>Message:  :</span>    <%=result[i].message %></div><br/>
+            <div><span>By:       :</span>    <%=result[i].user.name %></div><br/>
+            <div><span>Date:     :</span>    <%=result[i].time %></div>
+            <br/>
             </div>
             <br/>
     <%   } }
         else{ %>
-            <div class="container">
-                <div><span>Title:    :</span>    <%=result[i].title %></div><br/>
-                <div><span>Message:  :</span>    <%=result[i].message %></div><br/>
-                <div><span>By:       :</span>    Anonymus</div>
-                <br/>
+          <div class="container">
+            <div><span>Title:    :</span>    <%=result[i].title %></div><br/>
+            <div><span>Message:  :</span>    <%=result[i].message %></div><br/>
+            <div><span>By:       :</span>    Anonymus</div>
+            <br/>
             </div>
             <br/> 
      <%   }
