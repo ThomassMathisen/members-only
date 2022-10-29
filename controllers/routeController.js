@@ -6,11 +6,11 @@ const async = require('async')
 const {body, validationResult} = require('express-validator')
 const { findByIdAndRemove } = require('../models/user')
 
-exports.signup = function(req, res, next) {
+exports.sign_up_get = function(req, res, next) {
   res.render('sign-up', {title: 'Sign-up Form', msg: " "})
 }
 
-exports.signup_post = [
+exports.sign_up_post = [
   body('username').trim().isLength({ min:1 }).escape(),
   (req, res, next) => {
     const errors = validationResult(req)
@@ -47,8 +47,8 @@ exports.signup_post = [
   }
 ]
 
-exports.login = function(req, res, next) {
-  res.render('login', { title: 'Log in'})
+exports.login_get = function(req, res, next) {
+  res.render('log_in', { title: 'Log in'})
 }
 
 exports.login_post = passport.authenticate('local', {

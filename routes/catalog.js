@@ -14,16 +14,16 @@ router.get('/', (req, res, next) => {
   })
 })
 
-router.get('/sign-up', routeController.signup)
-router.get('/login', routeController.login)
+router.get('/sign-up', routeController.sign_up_get)
+router.get('/login', routeController.login_get)
 router.get('/logout', routeController.logout)
-router.get('/create-post', routeController.create_post)
+router.get('/create_post', routeController.create_post)
 router.get('/admin', routeController.admin)
 
 router.post('/', routeController.delete)
-router.post('/sign-up', routeController.signup_post)
+router.post('/sign-up', routeController.sign_up_post)
 router.post('/login', routeController.login_post)
-router.post('/create-post', routeController.create_post_post)
+router.post('/create_post', routeController.create_post_post)
 router.post('/admin', routeController.admin_post)
 
 module.exports = router
