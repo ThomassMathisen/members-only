@@ -1,9 +1,9 @@
-const User = require('../models/user')
-const Post = require('../models/posts')
-const passport = require('../passport')
+let User = require('../models/user')
+let Post = require('../models/posts')
+let passport = require('../passport')
 require('dotenv').config()
-const async = require('async')
-const {body, validationResult} = require('express-validator')
+let async = require('async')
+let {body, validationResult} = require('express-validator')
 const { findByIdAndRemove } = require('../models/user')
 
 exports.sign_up_get = function(req, res, next) {
@@ -15,7 +15,7 @@ exports.sign_up_post = [
   (req, res, next) => {
     const errors = validationResult(req)
 
-    const user = new User({
+    let user = new User({
       username: req.body.username,
       name: req.body.name,
       password: req.body.password,
@@ -74,7 +74,7 @@ exports.create_post_post = function(req, res, next) {
     hour: 'numeric',
     minute: 'numeric',
   })
-  const post = new Post({
+  let post = new Post({
     title: req.body.title,
     message: req.body.message,
     user: res.locals.currentUser._id,
@@ -94,7 +94,7 @@ exports.admin = function(req,res, next) {
 }
 
 exports.admin_post = function(req, res, next) {
-  const useru = new User({
+  let useru = new User({
     username: res.locals.currentUser.username,
     name: res.locals.currentUser.name,
     password: res.locals.currentUser.password,

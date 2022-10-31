@@ -12,7 +12,7 @@ require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const catalogRouter  = require('./routes/catalog');
+var catalogRouter  = require('./routes/catalog');
 
 var app = express();
 
@@ -21,11 +21,13 @@ mongoose.connect(mongoDb, { useUnifiedTopology: true, useNewUrlParser: true });
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection error"));
 
+let User = require('./models/user');
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.use(session({secret:process.env.secret,resave:false,saveUninitialized:true}));
+app.use(session({secret:process.env.SESSION_SECRET,resave:false,saveUninitialized:true}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -44,7 +46,7 @@ app.use(helmet());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/catalog', catalogRouter)
+app.use('/catalog', catalogRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

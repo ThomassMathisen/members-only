@@ -14,7 +14,7 @@ UserSchema.virtual('url').get(function(){
 })
 
 UserSchema.pre('save', function(){
-  const user = this
+  const user = this;
 
   if (!user.isModified('password')){
     return next()
