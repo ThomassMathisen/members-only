@@ -26,7 +26,7 @@ UserSchema.pre('save', function(){
     }
 
     user.password = hash
-    next()
+    next();
   })
 })
 

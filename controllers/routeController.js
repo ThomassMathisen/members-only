@@ -48,12 +48,12 @@ exports.sign_up_post = [
 ]
 
 exports.login_get = function(req, res, next) {
-  res.render('log_in', { title: 'Log in'})
+  res.render('log_in', { title: 'Log-In'})
 }
 
 exports.login_post = passport.authenticate('local', {
     successRedirect: '/',
-    failureRedirect: '/catalog/login'
+    failureRedirect: '/catalog/login',
 })
 
 exports.logout = function(req, res, next) {
