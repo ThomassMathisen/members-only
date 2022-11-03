@@ -1,7 +1,3 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -12,7 +8,6 @@ const session = require('express-session');
 const passport = require('./passport')
 const compression = require('compression');
 const helmet = require('helmet');
-
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
