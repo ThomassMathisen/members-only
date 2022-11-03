@@ -1,20 +1,21 @@
 body {
-  font: "Courier",
+  font: "Courier";
+  background-color: lightgrey;
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 .nav-bar{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   align-items: center;
-  background-color: #1F2937
+  background-color: darkgray;
   
 }
 a:hover{
-  color:#1F2937 ;
+  color: lightgray ;
 }
 .nav-2{
   grid-column-start: 6;
@@ -75,12 +76,12 @@ textarea{
   box-sizing: border-box;
 }
 .container{
-  background-color: #1F2937;
+  background-color: darkgrey;
   margin:10px 400px;
   font-size: 20px;
   padding: 25px;
-  color: white;
+  color: black;
 }
 span{
-  color:white;
+  color: black;
 }
