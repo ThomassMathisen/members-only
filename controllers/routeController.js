@@ -1,7 +1,10 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 let User = require('../models/user');
 let Post = require('../models/posts');
 let passport = require('../passport');
-require('dotenv').config();
 let async = require('async');
 let {body,validationResult} = require("express-validator");
 const { findByIdAndRemove } = require('../models/user');
