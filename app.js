@@ -8,7 +8,7 @@ const session = require('express-session');
 const passport = require('./passport')
 const compression = require('compression');
 const helmet = require('helmet');
-require('dotenv').config();
+
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
