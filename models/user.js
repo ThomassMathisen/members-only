@@ -13,7 +13,7 @@ UserSchema.virtual('url').get(function(){
   return `/catalog/user/${this._id}`
 })
 
-UserSchema.pre('save', function(){
+UserSchema.pre('save', function(next){
   const user = this;
 
   if (!user.isModified('password')){
@@ -30,4 +30,4 @@ UserSchema.pre('save', function(){
   })
 })
 
-module.exports = mongoose.model('User', UserSchema)
+module.exports = mongoose.model('User', UserSchema);
